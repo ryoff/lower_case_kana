@@ -11,6 +11,11 @@ describe LowerCaseKana do
     subject { str.kana_upcase }
 
     it { is_expected.to eq 'あいうえおかけつやゆよわアイウエオツヤユヨワｱｲｳｴｵﾔﾕﾖﾂ-' }
+
+    context 'without lower case letters' do
+      let(:str) { 'さしすせそサシスセソ' }
+      it { is_expected.to eq 'さしすせそサシスセソ' }
+    end
   end
 
   describe "#kana_upcase!" do
@@ -19,6 +24,11 @@ describe LowerCaseKana do
     before { str.kana_upcase! }
 
     it { expect(str).to eq 'あいうえおかけつやゆよわアイウエオツヤユヨワｱｲｳｴｵﾔﾕﾖﾂ-' }
+
+    context 'without lower case letters' do
+      let(:str) { 'さしすせそサシスセソ' }
+      it { expect(str).to eq 'さしすせそサシスセソ' }
+    end
   end
 
   describe "#kana_downcase" do
@@ -27,6 +37,11 @@ describe LowerCaseKana do
     subject { str.kana_downcase }
 
     it { is_expected.to eq 'ぁぃぅぇぉゕゖっゃゅょゎァィゥェォッャュョヮｧｨｩｪｫｬｭｮｯ_' }
+
+    context 'without lower case letters' do
+      let(:str) { 'さしすせそサシスセソ' }
+      it { is_expected.to eq 'さしすせそサシスセソ' }
+    end
   end
 
   describe "#kana_downcase!" do
@@ -35,5 +50,10 @@ describe LowerCaseKana do
     before { str.kana_downcase! }
 
     it { expect(str).to eq 'ぁぃぅぇぉゕゖっゃゅょゎァィゥェォッャュョヮｧｨｩｪｫｬｭｮｯ_' }
+
+    context 'without lower case letters' do
+      let(:str) { 'さしすせそサシスセソ' }
+      it { expect(str).to eq 'さしすせそサシスセソ' }
+    end
   end
 end
