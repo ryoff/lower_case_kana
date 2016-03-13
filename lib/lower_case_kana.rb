@@ -1,5 +1,2 @@
 require "lower_case_kana/version"
-
-module LowerCaseKana
-  # Your code goes here...
-end
+require "lower_case_kana/core_ext/string"
